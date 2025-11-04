@@ -1,8 +1,6 @@
 // Fonction qui détermine si une année est bissextile
 function bisextile(annee) {
-    // Une année est bissextile si :
-    // - elle est divisible par 4 ET non divisible par 100
-    // - ou elle est divisible par 400
+
     if ((annee % 4 === 0 && annee % 100 !== 0) || (annee % 400 === 0)) {
         return true;
     } else {
