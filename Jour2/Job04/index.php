@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Compteur de clics</title>
+    <title>Keylogger</title>
 </head>
 
 <body>
 
-    <button id="button">Clique-moi</button>
-    <p id="compteur">0</p>
+    <h2>Keylogger</h2>
+
+    <textarea id="keylogger" rows="6" cols="50"></textarea>
 
     <script src="script.js"></script>
 </body>

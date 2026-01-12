@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Compteur de clics</title>
+    <title>Konami Plateforme</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <button id="button">Clique-moi</button>
-    <p id="compteur">0</p>
+    <footer id="footer"></footer>
 
     <script src="script.js"></script>
 </body>
