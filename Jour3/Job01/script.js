@@ -1,11 +1,11 @@
-const showBtn = document.getElementById("showBtn");
-const hideBtn = document.getElementById("hideBtn");
-const text = document.getElementById("text");
+$(function () {
 
-showBtn.addEventListener("click", () => {
-    text.style.display = "block";
-});
+    $("#showBtn").on("click", function () {
+        $("#text").show();
+    });
 
-hideBtn.addEventListener("click", () => {
-    text.style.display = "none";
+    $("#hideBtn").on("click", function () {
+        $("#text").hide();
+    });
+
 });

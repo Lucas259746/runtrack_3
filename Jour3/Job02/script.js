@@ -1,51 +1,49 @@
-const container = document.getElementById("container");
-const shuffleBtn = document.getElementById("shuffleBtn");
-const message = document.getElementById("message");
+$(function () {
 
-let dragged = null;
+    let dragged = null;
 
-container.addEventListener("dragstart", e => {
-    if (e.target.tagName === "IMG") {
-        dragged = e.target;
-    }
-});
+    $("#container").on("dragstart", "img", function () {
+        dragged = this;
+    });
 
-container.addEventListener("dragover", e => {
-    e.preventDefault();
-});
+    $("#container").on("dragover", function (e) {
+        e.preventDefault();
+    });
 
-container.addEventListener("drop", e => {
-    if (e.target.tagName === "IMG" && dragged) {
-        container.insertBefore(dragged, e.target);
-        checkOrder();
-    }
-});
-
-shuffleBtn.addEventListener("click", () => {
-    const images = Array.from(container.children);
-    for (let i = images.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [images[i], images[j]] = [images[j], images[i]];
-    }
-    images.forEach(img => container.appendChild(img));
-    message.textContent = "";
-});
-
-function checkOrder() {
-    const images = container.querySelectorAll("img");
-    let correct = true;
-
-    images.forEach((img, index) => {
-        if (parseInt(img.dataset.order) !== index + 1) {
-            correct = false;
+    $("#container").on("drop", "img", function () {
+        if (dragged) {
+            $(dragged).insertBefore(this);
+            checkOrder();
         }
     });
 
-    if (correct) {
-        message.textContent = "Vous avez gagné";
-        message.style.color = "green";
-    } else {
-        message.textContent = "Vous avez perdu";
-        message.style.color = "red";
+    $("#shuffleBtn").on("click", function () {
+        let images = $("#container img").toArray();
+
+        for (let i = images.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [images[i], images[j]] = [images[j], images[i]];
+        }
+
+        $("#container").append(images);
+        $("#message").text("");
+    });
+
+    function checkOrder() {
+        let correct = true;
+
+        $("#container img").each(function (index) {
+            if (parseInt($(this).data("order")) !== index + 1) {
+                correct = false;
+            }
+        });
+
+        if (correct) {
+            $("#message").text("Vous avez gagné").css("color", "green");
+        } else {
+            $("#message").text("Vous avez perdu").css("color", "red");
+        }
     }
-}
+
+});
+

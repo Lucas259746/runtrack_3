@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bouton affichage / masquage</title>
+    <title>Job01 jQuery</title>
 </head>
 
 <body>
@@ -16,6 +16,8 @@
         ensuite on prie.
     </p>
 
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="script.js"></script>
 </body>
 

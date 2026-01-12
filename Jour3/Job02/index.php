@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Arc-en-ciel</title>
+    <title>Arc-en-ciel jQuery</title>
 </head>
 
 <body>
@@ -21,6 +21,8 @@
 
     <p id="message" style="font-weight:bold;"></p>
 
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="script.js"></script>
 </body>
 
